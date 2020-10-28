@@ -5,21 +5,18 @@
 Start with docker-compose:
 
 <code>
-
 docker-compose up
 </code>
 
 Alternative:
 
 <code>
-
 docker run -d --name elasticsearch --net somenetwork -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:tag
 </code>
 
 Kibana-elastic combined non-official image:
 
 <code>
-
 docker run -d -p 9200:9200 -p 5601:5601 nshou/elasticsearch-kibana
 </code>
 
