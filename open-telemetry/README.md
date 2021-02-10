@@ -10,11 +10,10 @@ docker-compose up
 
 Alternative:
 
-<code>
 https://github.com/jaegertracing/jaeger/blob/master/crossdock/jaeger-docker-compose.yml
-</code>
 
-Individual
+Individual:
+
 <code>
 docker run -d --link=elasticsearch --name jaeger  -e SPAN_STORAGE_TYPE=elasticsearch -e ES_SERVER_URLS=http://elasticsearch:9200 -e ES_TAGS_AS_FIELDS_ALL=true   -p 5775:5775/udp   -p 6831:6831/udp   -p 6832:6832/udp   -p 5778:5778   -p 16686:16686   -p 14268:14268   -p 14250:14250   -p 9411:9411 jaegertracing/all-in-one:1.21
 docker run --name elasticsearch -d -p 9200:9200 -p 9300:9300 -p 5601:5601 -e "discovery.type=single-node" nshou/elasticsearch-kibana
