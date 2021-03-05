@@ -1,0 +1,20 @@
+receivers:
+  kafka:
+    brokers:
+      - kafka_url:9092
+      - kafka_url:9092
+      - kafka_url:9092
+    protocol_version: 2.3.1
+
+exporters:
+  jaeger:
+    endpoint: jaeger:14250
+    insecure: true
+  logging:
+    loglevel: debug
+
+service:
+  pipelines:
+    traces:
+      receivers: [kafka]
+      exporters: [jaeger,logging]

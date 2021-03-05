@@ -1,0 +1,28 @@
+receivers:
+  jaeger:
+    protocols:
+      grpc:
+      thrift_binary:
+      thrift_compact:
+      thrift_http:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: 0.0.0.0:4317
+
+exporters:
+  jaeger:
+    endpoint: jaeger:14250
+    insecure: true
+  kafka:
+    brokers:
+      - kafk_url:9092
+    protocol_version: 2.3.1
+  logging:
+    loglevel: debug
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [logging, kafka]
